@@ -4,3 +4,7 @@ __pycache__
 sorts
 !src/sorts
 antiqsort_*
+
+.idea/
+
+ArrayVisualizer-master.iml
