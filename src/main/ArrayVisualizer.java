@@ -139,6 +139,7 @@ final public class ArrayVisualizer {
     private volatile boolean ANTIQSORT;
     private volatile boolean STABILITY;
     private volatile boolean REVERSED;
+    private volatile boolean BARS_STROKE;
 
     private volatile boolean isCanceled;
 
@@ -353,6 +354,8 @@ final public class ArrayVisualizer {
         this.RAINBOW = false;
         this.SPIRALDRAW = false;
         this.EXTARRAYS = false;
+        this.BARS_STROKE = false;
+
 
         this.ANTIQSORT = false;
         this.STABILITY = false;
@@ -1067,7 +1070,8 @@ final public class ArrayVisualizer {
     public void toggleExternalArrays(boolean Bool) {
         this.EXTARRAYS = Bool;
     }
-    
+    public void toggleBarsStroke(boolean Bool) { this.BARS_STROKE = Bool; }
+
     public void setVisual(VisualStyles choice) {
         if(choice == visuals.VisualStyles.CUSTOM_IMAGE) {
             ((CustomImage) this.visualClasses[9]).enableImgMenu();
@@ -1118,7 +1122,8 @@ final public class ArrayVisualizer {
     public boolean externalArraysEnabled() {
         return this.EXTARRAYS;
     }
-    
+    public boolean barsStrokeEnabled() { return this.BARS_STROKE; }
+
     public DecimalFormat getNumberFormat() {
         return this.formatter;
     }

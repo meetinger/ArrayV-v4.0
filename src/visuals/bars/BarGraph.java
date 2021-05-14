@@ -1,6 +1,6 @@
 package visuals.bars;
 
-import java.awt.Color;
+import java.awt.*;
 
 import main.ArrayVisualizer;
 import utils.Highlights;
@@ -32,6 +32,16 @@ final public class BarGraph extends Visual {
 				int y = (int) (((Renderer.getViewSize() - 20)) - (val + 1) * Renderer.getYScale());
 				
 				this.mainRender.fillRect(j + 20, Renderer.getYOffset() + y, width, (int) ((val + 1) * Renderer.getYScale()));
+
+				if (width >= 15 && ArrayVisualizer.barsStrokeEnabled()) {
+					double thickness = 1;
+					Stroke oldStroke = this.mainRender.getStroke();
+					this.mainRender.setStroke(new BasicStroke((float) thickness));
+					this.mainRender.setColor(Color.BLACK);
+					this.mainRender.drawLine(j + 20, Renderer.getYOffset() + y, j + 20, (int) ((array[i] + 1) * Renderer.getYScale())+Renderer.getYOffset() + y);
+					this.mainRender.setStroke(oldStroke);
+				}
+
 			}
 			j += width;
         }
